@@ -1,0 +1,300 @@
+
+RoboHand.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000006  00800100  00000192  00000206  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000192  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  0000020c  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000023c  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000078  00000000  00000000  0000027c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   0000090e  00000000  00000000  000002f4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000707  00000000  00000000  00000c02  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000361  00000000  00000000  00001309  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000b8  00000000  00000000  0000166c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000003f1  00000000  00000000  00001724  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000003a  00000000  00000000  00001b15  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000058  00000000  00000000  00001b4f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+   8:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+   c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  10:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  14:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  18:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  1c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  20:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  24:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  28:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  2c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  30:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  34:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  38:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  3c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  40:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  44:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  48:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  4c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  50:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  54:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  58:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  5c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  60:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  64:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e2 e9       	ldi	r30, 0x92	; 146
+  7c:	f1 e0       	ldi	r31, 0x01	; 1
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a6 30       	cpi	r26, 0x06	; 6
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+  8a:	0e 94 ba 00 	call	0x174	; 0x174 <main>
+  8e:	0c 94 c7 00 	jmp	0x18e	; 0x18e <_exit>
+
+00000092 <__bad_interrupt>:
+  92:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000096 <Finger_Go_To>:
+void Finger_Move(uint8_t finger, uint8_t percent_value) {
+	
+}
+
+void Finger_Go_To(uint8_t finger, uint8_t percent_value) {
+	switch(finger){
+  96:	82 30       	cpi	r24, 0x02	; 2
+  98:	89 f0       	breq	.+34     	; 0xbc <Finger_Go_To+0x26>
+  9a:	28 f4       	brcc	.+10     	; 0xa6 <Finger_Go_To+0x10>
+  9c:	88 23       	and	r24, r24
+  9e:	49 f0       	breq	.+18     	; 0xb2 <Finger_Go_To+0x1c>
+  a0:	81 30       	cpi	r24, 0x01	; 1
+  a2:	51 f0       	breq	.+20     	; 0xb8 <Finger_Go_To+0x22>
+  a4:	08 95       	ret
+  a6:	84 30       	cpi	r24, 0x04	; 4
+  a8:	89 f0       	breq	.+34     	; 0xcc <Finger_Go_To+0x36>
+  aa:	50 f0       	brcs	.+20     	; 0xc0 <Finger_Go_To+0x2a>
+  ac:	85 30       	cpi	r24, 0x05	; 5
+  ae:	a1 f0       	breq	.+40     	; 0xd8 <Finger_Go_To+0x42>
+  b0:	08 95       	ret
+		case 0:	{ //thumb
+			OCR2B = percent_value;		//pin 3 position (0-255)
+  b2:	60 93 b4 00 	sts	0x00B4, r22	; 0x8000b4 <__TEXT_REGION_LENGTH__+0x7e00b4>
+			break;
+  b6:	08 95       	ret
+		}
+		case 1:	{ //index
+			OCR0A = percent_value;		//pin 5 position (0-255)
+  b8:	67 bd       	out	0x27, r22	; 39
+			break;
+  ba:	08 95       	ret
+		}
+		case 2:	{ //middle
+			OCR0B = percent_value;		//pin 6 position (0-255)
+  bc:	68 bd       	out	0x28, r22	; 40
+			break;
+  be:	08 95       	ret
+		}
+		case 3:	{ //ring
+			OCR1A = percent_value;		//pin 9 position (0-255)
+  c0:	70 e0       	ldi	r23, 0x00	; 0
+  c2:	70 93 89 00 	sts	0x0089, r23	; 0x800089 <__TEXT_REGION_LENGTH__+0x7e0089>
+  c6:	60 93 88 00 	sts	0x0088, r22	; 0x800088 <__TEXT_REGION_LENGTH__+0x7e0088>
+			break;
+  ca:	08 95       	ret
+		}
+		case 4:	{ //pinky
+			OCR1B = percent_value;		//pin 10 position (0-255)
+  cc:	70 e0       	ldi	r23, 0x00	; 0
+  ce:	70 93 8b 00 	sts	0x008B, r23	; 0x80008b <__TEXT_REGION_LENGTH__+0x7e008b>
+  d2:	60 93 8a 00 	sts	0x008A, r22	; 0x80008a <__TEXT_REGION_LENGTH__+0x7e008a>
+			break;
+  d6:	08 95       	ret
+		}
+		case 5:	{ //wrist
+			OCR2A = percent_value;		//pin 11 position (0-255)
+  d8:	60 93 b3 00 	sts	0x00B3, r22	; 0x8000b3 <__TEXT_REGION_LENGTH__+0x7e00b3>
+  dc:	08 95       	ret
+
+000000de <Init_Servo_As_Output>:
+	}
+}
+
+
+void Init_Servo_As_Output(uint8_t finger) {
+	if(finger < 3){
+  de:	83 30       	cpi	r24, 0x03	; 3
+  e0:	48 f4       	brcc	.+18     	; 0xf4 <Init_Servo_As_Output+0x16>
+		DDRD |= finger_pin[finger];
+  e2:	9a b1       	in	r25, 0x0a	; 10
+  e4:	e8 2f       	mov	r30, r24
+  e6:	f0 e0       	ldi	r31, 0x00	; 0
+  e8:	e0 50       	subi	r30, 0x00	; 0
+  ea:	ff 4f       	sbci	r31, 0xFF	; 255
+  ec:	80 81       	ld	r24, Z
+  ee:	89 2b       	or	r24, r25
+  f0:	8a b9       	out	0x0a, r24	; 10
+  f2:	08 95       	ret
+		} else {
+		DDRB |= finger_pin[finger];
+  f4:	94 b1       	in	r25, 0x04	; 4
+  f6:	e8 2f       	mov	r30, r24
+  f8:	f0 e0       	ldi	r31, 0x00	; 0
+  fa:	e0 50       	subi	r30, 0x00	; 0
+  fc:	ff 4f       	sbci	r31, 0xFF	; 255
+  fe:	80 81       	ld	r24, Z
+ 100:	89 2b       	or	r24, r25
+ 102:	84 b9       	out	0x04, r24	; 4
+ 104:	08 95       	ret
+
+00000106 <Init_All_Servos_As_Outputs>:
+	}
+}
+
+void Init_All_Servos_As_Outputs() {
+	Init_Servo_As_Output(THUMB);
+ 106:	80 e0       	ldi	r24, 0x00	; 0
+ 108:	0e 94 6f 00 	call	0xde	; 0xde <Init_Servo_As_Output>
+	Init_Servo_As_Output(INDEX);
+ 10c:	81 e0       	ldi	r24, 0x01	; 1
+ 10e:	0e 94 6f 00 	call	0xde	; 0xde <Init_Servo_As_Output>
+	Init_Servo_As_Output(MIDDLE);
+ 112:	82 e0       	ldi	r24, 0x02	; 2
+ 114:	0e 94 6f 00 	call	0xde	; 0xde <Init_Servo_As_Output>
+	Init_Servo_As_Output(RING);
+ 118:	83 e0       	ldi	r24, 0x03	; 3
+ 11a:	0e 94 6f 00 	call	0xde	; 0xde <Init_Servo_As_Output>
+	Init_Servo_As_Output(PINKY);
+ 11e:	84 e0       	ldi	r24, 0x04	; 4
+ 120:	0e 94 6f 00 	call	0xde	; 0xde <Init_Servo_As_Output>
+	Init_Servo_As_Output(WRIST);
+ 124:	85 e0       	ldi	r24, 0x05	; 5
+ 126:	0e 94 6f 00 	call	0xde	; 0xde <Init_Servo_As_Output>
+ 12a:	08 95       	ret
+
+0000012c <Init_Timer0>:
+}
+
+
+void Init_Timer0() {
+	//		  tmr 8-bit					  | use pin 5    | use pin 6
+	TCCR0A |= (1 << WGM01) | (1 << WGM00) | (1 << COM0A1) | (1 << COM0B1);
+ 12c:	84 b5       	in	r24, 0x24	; 36
+ 12e:	83 6a       	ori	r24, 0xA3	; 163
+ 130:	84 bd       	out	0x24, r24	; 36
+	
+	//		  prescaler 1024
+	TCCR0B |= (1 << CS02) | (1 << CS00);						//16Mhz / (1024 * 255) = 61Hz
+ 132:	85 b5       	in	r24, 0x25	; 37
+ 134:	85 60       	ori	r24, 0x05	; 5
+ 136:	85 bd       	out	0x25, r24	; 37
+ 138:	08 95       	ret
+
+0000013a <Init_Timer1>:
+}
+
+void Init_Timer1() {
+	//		  tmr 8-bit    | use pin 9     | use pin 10
+	TCCR1A |= (1 << WGM10) | (1 << COM1A1) | (1 << COM1B1);
+ 13a:	e0 e8       	ldi	r30, 0x80	; 128
+ 13c:	f0 e0       	ldi	r31, 0x00	; 0
+ 13e:	80 81       	ld	r24, Z
+ 140:	81 6a       	ori	r24, 0xA1	; 161
+ 142:	80 83       	st	Z, r24
+	
+	//		  tmr 8-bit    | prescaler 1024
+	TCCR1B |= (1 << WGM12) | (1 << CS12) | (1 << CS10);			//16Mhz / (1024 * 255) = 61Hz
+ 144:	e1 e8       	ldi	r30, 0x81	; 129
+ 146:	f0 e0       	ldi	r31, 0x00	; 0
+ 148:	80 81       	ld	r24, Z
+ 14a:	8d 60       	ori	r24, 0x0D	; 13
+ 14c:	80 83       	st	Z, r24
+ 14e:	08 95       	ret
+
+00000150 <Init_Timer2>:
+}
+
+void Init_Timer2() {
+	//		  tmr 8-bit					  | use pin 11    | use pin 3
+	TCCR2A |= (1 << WGM21) | (1 << WGM20) | (1 << COM2A1) | (1 << COM2B1);
+ 150:	e0 eb       	ldi	r30, 0xB0	; 176
+ 152:	f0 e0       	ldi	r31, 0x00	; 0
+ 154:	80 81       	ld	r24, Z
+ 156:	83 6a       	ori	r24, 0xA3	; 163
+ 158:	80 83       	st	Z, r24
+	
+	//		  prescaler 1024
+	TCCR2B |= (1 << CS22) | (1 << CS21) | (1 << CS20);			//16Mhz / (1024 * 255) = 61Hz
+ 15a:	e1 eb       	ldi	r30, 0xB1	; 177
+ 15c:	f0 e0       	ldi	r31, 0x00	; 0
+ 15e:	80 81       	ld	r24, Z
+ 160:	87 60       	ori	r24, 0x07	; 7
+ 162:	80 83       	st	Z, r24
+ 164:	08 95       	ret
+
+00000166 <Init_All_Timers>:
+}
+
+void Init_All_Timers() {
+	Init_Timer0();
+ 166:	0e 94 96 00 	call	0x12c	; 0x12c <Init_Timer0>
+	Init_Timer1();
+ 16a:	0e 94 9d 00 	call	0x13a	; 0x13a <Init_Timer1>
+	Init_Timer2();
+ 16e:	0e 94 a8 00 	call	0x150	; 0x150 <Init_Timer2>
+ 172:	08 95       	ret
+
+00000174 <main>:
+#define F_CPU 16000000UL
+#include "servos_basic.h"
+
+int main(void){
+	
+	Init_All_Servos_As_Outputs();
+ 174:	0e 94 83 00 	call	0x106	; 0x106 <Init_All_Servos_As_Outputs>
+	Init_All_Timers();
+ 178:	0e 94 b3 00 	call	0x166	; 0x166 <Init_All_Timers>
+	
+	Finger_Go_To(THUMB, 15);
+ 17c:	6f e0       	ldi	r22, 0x0F	; 15
+ 17e:	80 e0       	ldi	r24, 0x00	; 0
+ 180:	0e 94 4b 00 	call	0x96	; 0x96 <Finger_Go_To>
+	Finger_Go_To(INDEX, 19);
+ 184:	63 e1       	ldi	r22, 0x13	; 19
+ 186:	81 e0       	ldi	r24, 0x01	; 1
+ 188:	0e 94 4b 00 	call	0x96	; 0x96 <Finger_Go_To>
+ 18c:	ff cf       	rjmp	.-2      	; 0x18c <main+0x18>
+
+0000018e <_exit>:
+ 18e:	f8 94       	cli
+
+00000190 <__stop_program>:
+ 190:	ff cf       	rjmp	.-2      	; 0x190 <__stop_program>
