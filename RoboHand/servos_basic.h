@@ -19,11 +19,22 @@
 #define WRIST 5
 
 // MAX AND MIN VALUES
-#define INDEX_MAX 3300
-#define INDEX_MIN 1100
+#define THUMB_MIN 7
+#define THUMB_MAX 21
+#define INDEX_MIN 0
+#define INDEX_MAX 0
+#define MIDDLE_MIN 6
+#define MIDDLE_MAX 0
+#define RING_MIN 0
+#define RING_MAX 0
+#define PINKY_MIN 0
+#define PINKY_MAX 0
+#define WRIST_MIN 0
+#define WRIST_MAX 0
 
-void Finger_Move(uint8_t, uint8_t);
+void Finger_Move(uint8_t, int16_t);
 void Finger_Go_To(uint8_t, uint8_t);
+void Wrist_Go_To(uint8_t);
 void Init_All_Servos_As_Outputs(void);
 void Init_All_Timers(void);
 
