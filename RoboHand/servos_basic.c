@@ -41,11 +41,11 @@ void Servo_Go_To(uint8_t servo, uint8_t position){
 			break;
 		}
 		case 1: {
-			OCR0A = position;		//pin 5 position (0-255)
+			OCR0B = position;		//pin 5 position (0-255)
 			break;
 		}
 		case 2: {
-			OCR0B = position;		//pin 6 position (0-255)
+			OCR0A = position;		//pin 6 position (0-255)
 			break;
 		}
 		case 3: {
@@ -119,7 +119,7 @@ void Finger_Move(uint8_t finger, int16_t percent_value) {
 *  percent_value:	percent of full move
 */
 void Finger_Go_To(uint8_t finger, uint8_t percent_value) {
-	uint8_t position;
+	uint32_t position;
 	
 	switch(finger){
 		case 0:	{ //thumb
@@ -146,7 +146,7 @@ void Finger_Go_To(uint8_t finger, uint8_t percent_value) {
 			position = 0;
 			break;
 	}
-	Servo_Go_To(finger, position);
+	Servo_Go_To(finger, (uint8_t)position);
 }
 
 /* Wrist_Go_To

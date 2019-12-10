@@ -7,6 +7,9 @@
 
 #include "servos_basic.h"
 
+#define OPEN 0
+#define CLOSE 100
+
 #ifndef GESTURES_H_
 #define GESTURES_H_
 
