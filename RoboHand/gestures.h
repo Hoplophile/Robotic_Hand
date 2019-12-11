@@ -14,7 +14,6 @@
 #define GESTURES_H_
 
 void Gesture_Rock(void);
-void Gesture_Fuck(void);
 void Gesture_Jumbo(void);
 void Gesture_Ok(void);
 void Gesture_OpenHand(void);
